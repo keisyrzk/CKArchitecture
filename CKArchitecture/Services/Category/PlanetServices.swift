@@ -23,7 +23,14 @@ enum PlanetServicesType: Service {
 struct PlanetServices {
     
     func getAll() -> AnyPublisher<[Planet], ServiceError> {
-        return services.request(.planet(.getAll)).eraseToAnyPublisher()
+        return services.request(.planet(.getAll))
+            .tryMap { (container: PlanetContainer) -> [Planet] in
+                return container.results
+            }
+            .mapError { error in
+                return .containerParsing(error.localizedDescription)
+            }
+            .eraseToAnyPublisher()
     }
     
     func getPlanet(id: String) -> AnyPublisher<Planet, ServiceError> {

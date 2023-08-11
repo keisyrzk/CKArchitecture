@@ -26,7 +26,7 @@ extension Services {
         
         return Future { promise in
 
-            guard let url = URL(string: baseURL + service.categoryStringUrl + service.requestEndpoint) else {
+            guard let url = URL(string: baseURL + service.requestEndpoint) else {
                 promise(.failure(.wrongURL))
                 return
             }

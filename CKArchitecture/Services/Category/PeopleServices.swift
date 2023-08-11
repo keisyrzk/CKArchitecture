@@ -24,7 +24,14 @@ enum PeopleServicesType: Service {
 struct PeopleServices {
     
     func getAll() -> AnyPublisher<[Person], ServiceError> {
-        return services.request(.people(.getAll)).eraseToAnyPublisher()
+        return services.request(.people(.getAll))
+            .tryMap { (container: PeopleContainer) -> [Person] in
+                return container.results
+            }
+            .mapError { error in
+                return .containerParsing(error.localizedDescription)
+            }
+            .eraseToAnyPublisher()
     }
     
     func getPerson(id: String) -> AnyPublisher<Person, ServiceError> {

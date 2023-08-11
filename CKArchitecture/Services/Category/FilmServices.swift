@@ -23,7 +23,14 @@ enum FilmServicesType: Service {
 struct FilmServices {
     
     func getAll() -> AnyPublisher<[Film], ServiceError> {
-        return services.request(.film(.getAll)).eraseToAnyPublisher()
+        return services.request(.film(.getAll))
+            .tryMap { (container: FilmContainer) -> [Film] in
+                return container.results
+            }
+            .mapError { error in
+                return .containerParsing(error.localizedDescription)
+            }
+            .eraseToAnyPublisher()
     }
     
     func getFilm(id: String) -> AnyPublisher<Film, ServiceError> {

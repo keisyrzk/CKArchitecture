@@ -13,14 +13,6 @@ enum ServiceCategory {
     case film   (FilmServicesType)
     case planet (PlanetServicesType)
     
-    var categoryStringUrl: String {
-        switch self {
-        case .people:   return "/people"
-        case .film:     return "/film"
-        case .planet:   return "/planet"
-        }
-    }
-    
     var requestEndpoint: String {
         switch self {
         case let .people(service):  return service.endpoint
