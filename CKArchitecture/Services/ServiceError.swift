@@ -12,6 +12,8 @@ enum ServiceError: Error {
     case wrongURL
     case undefined
     case containerParsing(String)
+    case wrongId
+    case noIds
     
     case custom(String)
     
@@ -19,6 +21,8 @@ enum ServiceError: Error {
         switch self {
         case .wrongURL:                         return "Wrong URL"
         case .undefined:                        return "Undefined error"
+        case .wrongId:                          return "The provided ID is not valid"
+        case .noIds:                            return "The provided sequesce contains no valid IDs"
         case let .containerParsing(errorMsg):   return "Container parsing failed - \(errorMsg)"
         case let .custom(errorMsg):             return "Something went wrong - \(errorMsg)"
         }

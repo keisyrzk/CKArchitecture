@@ -18,22 +18,34 @@ class MainViewModel {
     }
     
     struct Output {
-        let onError:    AnyPublisher<ServiceError, Never>
-        let onPush:     AnyPublisher<Module, Never>
+        let onError:                AnyPublisher<ServiceError, Never>
+        let onIsSpinnerPresented:   AnyPublisher<Bool, Never>
+        let onPush:                 AnyPublisher<Module, Never>
     }
     
+    
     // MARK: Publishers
+    
     var cancellables = Set<AnyCancellable>()
     private let errorPublisher = PassthroughSubject<ServiceError, Never>()
+    private let onIsSpinnerPresentedPublisher = PassthroughSubject<Bool, Never>()
     private var onPush = PassthroughSubject<Module, Never>()
+    
     
     // MARK: Transform
     
     func transform(_ input: Input) -> Output {
         
+        errorPublisher
+            .sink { [weak self] _ in
+                self?.onIsSpinnerPresentedPublisher.send(false)
+            }
+            .store(in: &cancellables)
+        
         // fetch data accordingly
         input.didClickPeopleOption
             .sink { [unowned self] _ in
+                onIsSpinnerPresentedPublisher.send(true)
                 getPeople()
                     .sink { [weak self] response in
                         if case let .failure(error) = response {
@@ -48,6 +60,7 @@ class MainViewModel {
         
         input.didClickPlanetsOption
             .sink { [unowned self] _ in
+                onIsSpinnerPresentedPublisher.send(true)
                 getPlanets()
                     .sink { [weak self] response in
                         if case let .failure(error) = response {
@@ -62,6 +75,7 @@ class MainViewModel {
         
         input.didClickFilmsOption
             .sink { [unowned self] _ in
+                onIsSpinnerPresentedPublisher.send(true)
                 getFilms()
                     .sink { [weak self] response in
                         if case let .failure(error) = response {
@@ -76,8 +90,9 @@ class MainViewModel {
         
         
         return Output(
-            onError:    errorPublisher.eraseToAnyPublisher(),
-            onPush:     onPush.eraseToAnyPublisher()
+            onError:                errorPublisher.eraseToAnyPublisher(),
+            onIsSpinnerPresented:   onIsSpinnerPresentedPublisher.eraseToAnyPublisher(),
+            onPush:                 onPush.eraseToAnyPublisher()
         )
     }
 }
@@ -102,14 +117,17 @@ extension MainViewModel {
 extension MainViewModel {
     
     private func showPeopleDetails(_ people: [Person]) {
+        onIsSpinnerPresentedPublisher.send(false)
         onPush.send(.peopleList(people))
     }
     
     private func showPlanetsDetails(_ planets: [Planet]) {
+        onIsSpinnerPresentedPublisher.send(false)
         onPush.send(.planetsList(planets))
     }
     
     private func showFilmDetails(_ films: [Film]) {
+        onIsSpinnerPresentedPublisher.send(false)
         onPush.send(.filmsList(films))
     }
 }

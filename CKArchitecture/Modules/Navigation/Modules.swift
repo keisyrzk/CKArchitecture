@@ -21,9 +21,7 @@ enum Module: Hashable {
     case peopleList     ([Person])
     case planetsList    ([Planet])
     case filmsList      ([Film])
-//    case personDetails  (Person)
-//    case planetDetails  (Planet)
-//    case filmDetails    (Film)
+    case details        (String)
     
     var id: String {
         switch self {
@@ -31,18 +29,17 @@ enum Module: Hashable {
         case .peopleList:       return "peopleList"
         case .planetsList:      return "planetsList"
         case .filmsList:        return "filmsList"
-//        case .personDetails:    return "personDetails"
-//        case .planetDetails:    return "planetDetails"
-//        case .filmDetails:      return "filmDetails"
+        case .details:          return "details"
         }
     }
     
     var view: UIViewController {
         switch self {
-        case .main:                     return MainViewController()
-        case let .peopleList(people):   return PeopleListViewController(people: people)
-        case let .planetsList(planets): return PlanetsListViewController(planets: planets)
-        case let .filmsList(films):     return FilmsListViewController(films: films)
+        case .main:                             return MainViewController()
+        case let .peopleList(people):           return PeopleListViewController(people: people)
+        case let .planetsList(planets):         return PlanetsListViewController(planets: planets)
+        case let .filmsList(films):             return FilmsListViewController(films: films)
+        case let .details(detailsPrettyString): return DetailsViewController(detailsPrettyString: detailsPrettyString)
         }
     }
 }

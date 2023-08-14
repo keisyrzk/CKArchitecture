@@ -16,6 +16,33 @@ struct Person: Decodable {
     let homeworld:  String
     let films:      [String]
     
+    var prettyPrinted: String {
+        return [
+            name,
+            height,
+            mass,
+            gender.rawValue,
+            homeworld
+        ].joined(separator: "\n")
+    }
+}
+
+extension Person {
+    
+    var homeworldId: String? {
+        return homeworld.uriId
+    }
+    
+    var filmsIds: [String] {
+        return films.compactMap{ $0.uriId }
+    }
+}
+
+extension Array where Element == Person {
+    
+    var prettyPrinted: String {
+        return self.map{ $0.prettyPrinted }.joined(separator: "\n")
+    }
 }
 
 struct PeopleContainer: Decodable {

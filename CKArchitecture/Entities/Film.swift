@@ -16,6 +16,34 @@ struct Film: Decodable {
     let release_date:   String
     let characters:     [String]
     let planets:        [String]
+    
+    var prettyPrinted: String {
+        return [
+            title,
+            "\(episode_id)",
+            opening_crawl,
+            director,
+            release_date
+        ].joined(separator: "\n")
+    }
+}
+
+extension Film {
+    
+    var charactersIds: [String] {
+        return characters.compactMap{ $0.uriId }
+    }
+    
+    var planetsIds: [String] {
+        return planets.compactMap{ $0.uriId }
+    }
+}
+
+extension Array where Element == Film {
+    
+    var prettyPrinted: String {
+        return self.map{ $0.prettyPrinted }.joined(separator: "\n")
+    }
 }
 
 struct FilmContainer: Decodable {

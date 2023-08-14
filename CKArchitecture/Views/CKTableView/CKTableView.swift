@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Combine
 
-class CKTableView<T>: UITableView, UITableViewDataSource {
+class CKTableView<T>: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     private var items: [T] = []
+    var onCellClickPublisher = PassthroughSubject<T, Never>()
     
     init(items: [T]) {
         super.init(frame: .zero, style: .plain)
@@ -23,6 +25,7 @@ class CKTableView<T>: UITableView, UITableViewDataSource {
     
     private func setup() {
         dataSource = self
+        delegate = self
         registerCells()
     }
     
@@ -48,6 +51,10 @@ class CKTableView<T>: UITableView, UITableViewDataSource {
         }
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onCellClickPublisher.send(items[indexPath.row])
     }
 }
 

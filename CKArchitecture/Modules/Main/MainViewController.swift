@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
     //MARK: Attributes
     
@@ -45,17 +45,14 @@ class MainViewController: UIViewController {
                 didClickPeopleOption:
                     peopleButton
                         .tapPublisher
-                        .debounce(for: 3, scheduler: DispatchQueue.main)
                         .eraseToAnyPublisher(),
                 didClickPlanetsOption:
                     planetsButton
                         .tapPublisher
-                        .debounce(for: 3, scheduler: DispatchQueue.main)
                         .eraseToAnyPublisher(),
                 didClickFilmsOption:
                     filmsButton
                         .tapPublisher
-                        .debounce(for: 3, scheduler: DispatchQueue.main)
                         .eraseToAnyPublisher()
             )
         )
@@ -73,15 +70,14 @@ class MainViewController: UIViewController {
                 self?.push(module)
             }
             .store(in: &viewModel.cancellables)
+        
+        output.onIsSpinnerPresented
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isPresented in
+                self?.showSpinner(isPresented)
+            }
+            .store(in: &viewModel.cancellables)
     }
-    
-    private func showAlert(error: ServiceError) {
-            let alert = UIAlertController(title: "Error",
-                                          message: error.message,
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
 }
 
 //MARK: UI
@@ -95,6 +91,7 @@ extension MainViewController {
         view.addSubview(peopleButton)
         view.addSubview(planetsButton)
         view.addSubview(filmsButton)
+        setup()
         
         NSLayoutConstraint.activate([
             peopleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),

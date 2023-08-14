@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Combine
 
-class PeopleListViewController: UIViewController {
+class PeopleListViewController: BaseViewController {
     
     // MARK: Attributes
     
@@ -34,6 +35,39 @@ class PeopleListViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        binding()
+    }
+    
+    private func binding() {
+        
+        let output = viewModel.transform(
+            // the compiler knows from the context that it will be the `Person` so no type check is needed
+            PeopleListViewModel.Input(
+                selectedPerson:
+                    tableView.onCellClickPublisher.eraseToAnyPublisher()
+            )
+        )
+        
+        output.onShow
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] module in
+                self?.show(module)
+            }
+            .store(in: &viewModel.cancellables)
+        
+        output.onError
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                self?.showAlert(error: error)
+            }
+            .store(in: &viewModel.cancellables)
+        
+        output.onIsSpinnerPresented
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isPresented in
+                self?.showSpinner(isPresented)
+            }
+            .store(in: &viewModel.cancellables)
     }
 }
 
@@ -45,7 +79,8 @@ extension PeopleListViewController {
         
         view.backgroundColor = .white
         view.addSubview(tableView)
-                
+        setup()
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

@@ -23,6 +23,10 @@
 		CC0AB9532A8A135F00D903BC /* PlanetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0AB9512A8A135F00D903BC /* PlanetTableViewCell.xib */; };
 		CC0AB9572A8A157400D903BC /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9552A8A157400D903BC /* FilmTableViewCell.swift */; };
 		CC0AB9582A8A157400D903BC /* FilmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0AB9562A8A157400D903BC /* FilmTableViewCell.xib */; };
+		CC0AB9662A8A236200D903BC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9652A8A236200D903BC /* DetailsViewController.swift */; };
+		CC0AB9682A8A236E00D903BC /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9672A8A236E00D903BC /* DetailsViewModel.swift */; };
+		CC0AB96A2A8A2AA100D903BC /* IDExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9692A8A2AA100D903BC /* IDExtractor.swift */; };
+		CC0AB96C2A8A3ECE00D903BC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB96B2A8A3ECE00D903BC /* BaseViewController.swift */; };
 		CC30BEFD2A84D92700C74DBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30BEFC2A84D92700C74DBE /* AppDelegate.swift */; };
 		CC30BEFF2A84D92700C74DBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30BEFE2A84D92700C74DBE /* SceneDelegate.swift */; };
 		CC30BF062A84D92900C74DBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC30BF052A84D92900C74DBE /* Assets.xcassets */; };
@@ -62,6 +66,10 @@
 		CC0AB9512A8A135F00D903BC /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
 		CC0AB9552A8A157400D903BC /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
 		CC0AB9562A8A157400D903BC /* FilmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmTableViewCell.xib; sourceTree = "<group>"; };
+		CC0AB9652A8A236200D903BC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		CC0AB9672A8A236E00D903BC /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		CC0AB9692A8A2AA100D903BC /* IDExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDExtractor.swift; sourceTree = "<group>"; };
+		CC0AB96B2A8A3ECE00D903BC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CC30BEF92A84D92700C74DBE /* CKArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC30BEFC2A84D92700C74DBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC30BEFE2A84D92700C74DBE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 				CC0AB92B2A89E7F400D903BC /* Modules.swift */,
 				CC0AB92E2A89EF6A00D903BC /* Navigation.swift */,
 				CC0AB9302A89EFD400D903BC /* NavigationError.swift */,
+				CC0AB96B2A8A3ECE00D903BC /* BaseViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -180,6 +189,15 @@
 			path = Film;
 			sourceTree = "<group>";
 		};
+		CC0AB9642A8A235700D903BC /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB9652A8A236200D903BC /* DetailsViewController.swift */,
+				CC0AB9672A8A236E00D903BC /* DetailsViewModel.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		CC30BEF02A84D92700C74DBE = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +246,7 @@
 		CC30BF112A84DDE400C74DBE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CC0AB9642A8A235700D903BC /* Details */,
 				CC0AB93C2A89F42000D903BC /* FilmsList */,
 				CC0AB9372A89F3BF00D903BC /* PlanetsList */,
 				CC0AB9322A89F2E800D903BC /* PeopleList */,
@@ -289,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				CC30BF3E2A86119A00C74DBE /* Combine */,
+				CC0AB9692A8A2AA100D903BC /* IDExtractor.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -379,21 +399,25 @@
 				CC30BF402A86123100C74DBE /* CombineExtension.swift in Sources */,
 				CC30BF182A84DF1400C74DBE /* Gender.swift in Sources */,
 				CC30BF392A85009900C74DBE /* ServiceResponse.swift in Sources */,
+				CC0AB96C2A8A3ECE00D903BC /* BaseViewController.swift in Sources */,
 				CC30BF2C2A84E4AD00C74DBE /* ServiceCategory.swift in Sources */,
 				CC30BF442A86162B00C74DBE /* MainButtonType.swift in Sources */,
 				CC30BEFD2A84D92700C74DBE /* AppDelegate.swift in Sources */,
 				CC0AB92F2A89EF6A00D903BC /* Navigation.swift in Sources */,
 				CC30BF312A84F33900C74DBE /* PeopleServices.swift in Sources */,
+				CC0AB9662A8A236200D903BC /* DetailsViewController.swift in Sources */,
 				CC30BF3C2A86105700C74DBE /* MainViewController.swift in Sources */,
 				CC30BF1C2A84E00B00C74DBE /* Services.swift in Sources */,
 				CC0AB9362A89F32800D903BC /* PeopleListViewModel.swift in Sources */,
 				CC30BF1A2A84DFAF00C74DBE /* Planet.swift in Sources */,
 				CC0AB9402A89F45800D903BC /* FilmsListViewModel.swift in Sources */,
 				CC30BF1E2A84E09300C74DBE /* Film.swift in Sources */,
+				CC0AB96A2A8A2AA100D903BC /* IDExtractor.swift in Sources */,
 				CC0AB9312A89EFD400D903BC /* NavigationError.swift in Sources */,
 				CC30BF162A84DEC400C74DBE /* Person.swift in Sources */,
 				CC0AB93E2A89F42F00D903BC /* FilmsListViewController.swift in Sources */,
 				CC30BF332A84F34A00C74DBE /* FilmServices.swift in Sources */,
+				CC0AB9682A8A236E00D903BC /* DetailsViewModel.swift in Sources */,
 				CC30BEFF2A84D92700C74DBE /* SceneDelegate.swift in Sources */,
 				CC0AB92C2A89E7F400D903BC /* Modules.swift in Sources */,
 				CC30BF372A84F4B200C74DBE /* ServiceError.swift in Sources */,
