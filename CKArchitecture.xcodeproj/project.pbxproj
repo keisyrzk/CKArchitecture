@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0AB92C2A89E7F400D903BC /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB92B2A89E7F400D903BC /* Modules.swift */; };
+		CC0AB92F2A89EF6A00D903BC /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB92E2A89EF6A00D903BC /* Navigation.swift */; };
+		CC0AB9312A89EFD400D903BC /* NavigationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9302A89EFD400D903BC /* NavigationError.swift */; };
+		CC0AB9342A89F31500D903BC /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9332A89F31500D903BC /* PeopleListViewController.swift */; };
+		CC0AB9362A89F32800D903BC /* PeopleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9352A89F32800D903BC /* PeopleListViewModel.swift */; };
+		CC0AB9392A89F3D700D903BC /* PlanetsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9382A89F3D700D903BC /* PlanetsListViewController.swift */; };
+		CC0AB93B2A89F3E300D903BC /* PlanetsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB93A2A89F3E300D903BC /* PlanetsListViewModel.swift */; };
+		CC0AB93E2A89F42F00D903BC /* FilmsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB93D2A89F42F00D903BC /* FilmsListViewController.swift */; };
+		CC0AB9402A89F45800D903BC /* FilmsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB93F2A89F45800D903BC /* FilmsListViewModel.swift */; };
+		CC0AB9432A8A087100D903BC /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9412A8A087100D903BC /* PersonTableViewCell.swift */; };
+		CC0AB9442A8A087100D903BC /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0AB9422A8A087100D903BC /* PersonTableViewCell.xib */; };
+		CC0AB9462A8A0E3800D903BC /* CKTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9452A8A0E3800D903BC /* CKTableView.swift */; };
+		CC0AB9522A8A135F00D903BC /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9502A8A135F00D903BC /* PlanetTableViewCell.swift */; };
+		CC0AB9532A8A135F00D903BC /* PlanetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0AB9512A8A135F00D903BC /* PlanetTableViewCell.xib */; };
+		CC0AB9572A8A157400D903BC /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB9552A8A157400D903BC /* FilmTableViewCell.swift */; };
+		CC0AB9582A8A157400D903BC /* FilmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0AB9562A8A157400D903BC /* FilmTableViewCell.xib */; };
 		CC30BEFD2A84D92700C74DBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30BEFC2A84D92700C74DBE /* AppDelegate.swift */; };
 		CC30BEFF2A84D92700C74DBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30BEFE2A84D92700C74DBE /* SceneDelegate.swift */; };
 		CC30BF062A84D92900C74DBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC30BF052A84D92900C74DBE /* Assets.xcassets */; };
@@ -30,6 +46,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC0AB92B2A89E7F400D903BC /* Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modules.swift; sourceTree = "<group>"; };
+		CC0AB92E2A89EF6A00D903BC /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		CC0AB9302A89EFD400D903BC /* NavigationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationError.swift; sourceTree = "<group>"; };
+		CC0AB9332A89F31500D903BC /* PeopleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
+		CC0AB9352A89F32800D903BC /* PeopleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewModel.swift; sourceTree = "<group>"; };
+		CC0AB9382A89F3D700D903BC /* PlanetsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsListViewController.swift; sourceTree = "<group>"; };
+		CC0AB93A2A89F3E300D903BC /* PlanetsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsListViewModel.swift; sourceTree = "<group>"; };
+		CC0AB93D2A89F42F00D903BC /* FilmsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsListViewController.swift; sourceTree = "<group>"; };
+		CC0AB93F2A89F45800D903BC /* FilmsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsListViewModel.swift; sourceTree = "<group>"; };
+		CC0AB9412A8A087100D903BC /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		CC0AB9422A8A087100D903BC /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
+		CC0AB9452A8A0E3800D903BC /* CKTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKTableView.swift; sourceTree = "<group>"; };
+		CC0AB9502A8A135F00D903BC /* PlanetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCell.swift; sourceTree = "<group>"; };
+		CC0AB9512A8A135F00D903BC /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
+		CC0AB9552A8A157400D903BC /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
+		CC0AB9562A8A157400D903BC /* FilmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmTableViewCell.xib; sourceTree = "<group>"; };
 		CC30BEF92A84D92700C74DBE /* CKArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC30BEFC2A84D92700C74DBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC30BEFE2A84D92700C74DBE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +97,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC0AB92D2A89EF5700D903BC /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB92B2A89E7F400D903BC /* Modules.swift */,
+				CC0AB92E2A89EF6A00D903BC /* Navigation.swift */,
+				CC0AB9302A89EFD400D903BC /* NavigationError.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CC0AB9322A89F2E800D903BC /* PeopleList */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB9332A89F31500D903BC /* PeopleListViewController.swift */,
+				CC0AB9352A89F32800D903BC /* PeopleListViewModel.swift */,
+			);
+			path = PeopleList;
+			sourceTree = "<group>";
+		};
+		CC0AB9372A89F3BF00D903BC /* PlanetsList */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB9382A89F3D700D903BC /* PlanetsListViewController.swift */,
+				CC0AB93A2A89F3E300D903BC /* PlanetsListViewModel.swift */,
+			);
+			path = PlanetsList;
+			sourceTree = "<group>";
+		};
+		CC0AB93C2A89F42000D903BC /* FilmsList */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB93D2A89F42F00D903BC /* FilmsListViewController.swift */,
+				CC0AB93F2A89F45800D903BC /* FilmsListViewModel.swift */,
+			);
+			path = FilmsList;
+			sourceTree = "<group>";
+		};
+		CC0AB9472A8A12BE00D903BC /* CKTableView */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB9452A8A0E3800D903BC /* CKTableView.swift */,
+				CC0AB94C2A8A132500D903BC /* Cells */,
+			);
+			path = CKTableView;
+			sourceTree = "<group>";
+		};
+		CC0AB94C2A8A132500D903BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB9542A8A156700D903BC /* Film */,
+				CC0AB94E2A8A133300D903BC /* Planet */,
+				CC0AB94D2A8A132C00D903BC /* Person */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CC0AB94D2A8A132C00D903BC /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB9412A8A087100D903BC /* PersonTableViewCell.swift */,
+				CC0AB9422A8A087100D903BC /* PersonTableViewCell.xib */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		CC0AB94E2A8A133300D903BC /* Planet */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB9502A8A135F00D903BC /* PlanetTableViewCell.swift */,
+				CC0AB9512A8A135F00D903BC /* PlanetTableViewCell.xib */,
+			);
+			path = Planet;
+			sourceTree = "<group>";
+		};
+		CC0AB9542A8A156700D903BC /* Film */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB9552A8A157400D903BC /* FilmTableViewCell.swift */,
+				CC0AB9562A8A157400D903BC /* FilmTableViewCell.xib */,
+			);
+			path = Film;
+			sourceTree = "<group>";
+		};
 		CC30BEF02A84D92700C74DBE = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +217,8 @@
 		CC30BF102A84DDDC00C74DBE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				CC30BF152A84DEC400C74DBE /* Person.swift */,
 				CC30BF172A84DF1400C74DBE /* Gender.swift */,
+				CC30BF152A84DEC400C74DBE /* Person.swift */,
 				CC30BF192A84DFAF00C74DBE /* Planet.swift */,
 				CC30BF1D2A84E09300C74DBE /* Film.swift */,
 			);
@@ -113,7 +228,11 @@
 		CC30BF112A84DDE400C74DBE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CC0AB93C2A89F42000D903BC /* FilmsList */,
+				CC0AB9372A89F3BF00D903BC /* PlanetsList */,
+				CC0AB9322A89F2E800D903BC /* PeopleList */,
 				CC30BF3A2A860E0900C74DBE /* Main */,
+				CC0AB92D2A89EF5700D903BC /* Navigation */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -139,6 +258,7 @@
 		CC30BF142A84DE0400C74DBE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC0AB9472A8A12BE00D903BC /* CKTableView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,8 +359,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0AB9582A8A157400D903BC /* FilmTableViewCell.xib in Resources */,
 				CC30BF092A84D92900C74DBE /* LaunchScreen.storyboard in Resources */,
 				CC30BF062A84D92900C74DBE /* Assets.xcassets in Resources */,
+				CC0AB9442A8A087100D903BC /* PersonTableViewCell.xib in Resources */,
+				CC0AB9532A8A135F00D903BC /* PlanetTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,23 +375,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC30BF352A84F36100C74DBE /* PlanetServices.swift in Sources */,
+				CC0AB9462A8A0E3800D903BC /* CKTableView.swift in Sources */,
 				CC30BF402A86123100C74DBE /* CombineExtension.swift in Sources */,
 				CC30BF182A84DF1400C74DBE /* Gender.swift in Sources */,
 				CC30BF392A85009900C74DBE /* ServiceResponse.swift in Sources */,
 				CC30BF2C2A84E4AD00C74DBE /* ServiceCategory.swift in Sources */,
 				CC30BF442A86162B00C74DBE /* MainButtonType.swift in Sources */,
 				CC30BEFD2A84D92700C74DBE /* AppDelegate.swift in Sources */,
+				CC0AB92F2A89EF6A00D903BC /* Navigation.swift in Sources */,
 				CC30BF312A84F33900C74DBE /* PeopleServices.swift in Sources */,
 				CC30BF3C2A86105700C74DBE /* MainViewController.swift in Sources */,
 				CC30BF1C2A84E00B00C74DBE /* Services.swift in Sources */,
+				CC0AB9362A89F32800D903BC /* PeopleListViewModel.swift in Sources */,
 				CC30BF1A2A84DFAF00C74DBE /* Planet.swift in Sources */,
+				CC0AB9402A89F45800D903BC /* FilmsListViewModel.swift in Sources */,
 				CC30BF1E2A84E09300C74DBE /* Film.swift in Sources */,
+				CC0AB9312A89EFD400D903BC /* NavigationError.swift in Sources */,
 				CC30BF162A84DEC400C74DBE /* Person.swift in Sources */,
+				CC0AB93E2A89F42F00D903BC /* FilmsListViewController.swift in Sources */,
 				CC30BF332A84F34A00C74DBE /* FilmServices.swift in Sources */,
 				CC30BEFF2A84D92700C74DBE /* SceneDelegate.swift in Sources */,
+				CC0AB92C2A89E7F400D903BC /* Modules.swift in Sources */,
 				CC30BF372A84F4B200C74DBE /* ServiceError.swift in Sources */,
+				CC0AB9572A8A157400D903BC /* FilmTableViewCell.swift in Sources */,
+				CC0AB9392A89F3D700D903BC /* PlanetsListViewController.swift in Sources */,
+				CC0AB9342A89F31500D903BC /* PeopleListViewController.swift in Sources */,
 				CC30BF2F2A84F32D00C74DBE /* ServiceProtocol.swift in Sources */,
 				CC30BF422A86133100C74DBE /* MainViewModel.swift in Sources */,
+				CC0AB9432A8A087100D903BC /* PersonTableViewCell.swift in Sources */,
+				CC0AB93B2A89F3E300D903BC /* PlanetsListViewModel.swift in Sources */,
+				CC0AB9522A8A135F00D903BC /* PlanetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

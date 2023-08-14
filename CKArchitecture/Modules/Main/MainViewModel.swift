@@ -18,24 +18,26 @@ class MainViewModel {
     }
     
     struct Output {
-        let onError:                AnyPublisher<ServiceError, Never>
+        let onError:    AnyPublisher<ServiceError, Never>
+        let onPush:     AnyPublisher<Module, Never>
     }
     
+    // MARK: Publishers
     var cancellables = Set<AnyCancellable>()
+    private let errorPublisher = PassthroughSubject<ServiceError, Never>()
+    private var onPush = PassthroughSubject<Module, Never>()
     
     // MARK: Transform
     
     func transform(_ input: Input) -> Output {
         
-        let errorPublisher = PassthroughSubject<ServiceError, Never>()
-        
         // fetch data accordingly
         input.didClickPeopleOption
             .sink { [unowned self] _ in
                 getPeople()
-                    .sink { response in
+                    .sink { [weak self] response in
                         if case let .failure(error) = response {
-                            errorPublisher.send(error)
+                            self?.errorPublisher.send(error)
                         }
                     } receiveValue: { [weak self] people in
                         self?.showPeopleDetails(people)
@@ -47,9 +49,9 @@ class MainViewModel {
         input.didClickPlanetsOption
             .sink { [unowned self] _ in
                 getPlanets()
-                    .sink { response in
+                    .sink { [weak self] response in
                         if case let .failure(error) = response {
-                            errorPublisher.send(error)
+                            self?.errorPublisher.send(error)
                         }
                     } receiveValue: { [weak self] planets in
                         self?.showPlanetsDetails(planets)
@@ -61,9 +63,9 @@ class MainViewModel {
         input.didClickFilmsOption
             .sink { [unowned self] _ in
                 getFilms()
-                    .sink { response in
+                    .sink { [weak self] response in
                         if case let .failure(error) = response {
-                            errorPublisher.send(error)
+                            self?.errorPublisher.send(error)
                         }
                     } receiveValue: { [weak self] films in
                         self?.showFilmDetails(films)
@@ -74,7 +76,8 @@ class MainViewModel {
         
         
         return Output(
-            onError: errorPublisher.eraseToAnyPublisher()
+            onError:    errorPublisher.eraseToAnyPublisher(),
+            onPush:     onPush.eraseToAnyPublisher()
         )
     }
 }
@@ -99,14 +102,14 @@ extension MainViewModel {
 extension MainViewModel {
     
     private func showPeopleDetails(_ people: [Person]) {
-        print("Show details for people: \(people.count)")
+        onPush.send(.peopleList(people))
     }
     
     private func showPlanetsDetails(_ planets: [Planet]) {
-        print("Show details for planets: \(planets.count)")
+        onPush.send(.planetsList(planets))
     }
     
     private func showFilmDetails(_ films: [Film]) {
-        print("Show details for films: \(films.count)")
+        onPush.send(.filmsList(films))
     }
 }

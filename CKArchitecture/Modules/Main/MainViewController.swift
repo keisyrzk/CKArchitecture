@@ -66,6 +66,13 @@ class MainViewController: UIViewController {
                 self?.showAlert(error: error)
             }
             .store(in: &viewModel.cancellables)
+        
+        output.onPush
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] module in
+                self?.push(module)
+            }
+            .store(in: &viewModel.cancellables)
     }
     
     private func showAlert(error: ServiceError) {
@@ -81,7 +88,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     
-    func setupUI() {
+    private func setupUI() {
         
         view.backgroundColor = .white
         
