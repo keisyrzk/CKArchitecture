@@ -47,6 +47,7 @@
 		CC30BF402A86123100C74DBE /* CombineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30BF3F2A86123100C74DBE /* CombineExtension.swift */; };
 		CC30BF422A86133100C74DBE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30BF412A86133100C74DBE /* MainViewModel.swift */; };
 		CC30BF442A86162B00C74DBE /* MainButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30BF432A86162B00C74DBE /* MainButtonType.swift */; };
+		CC746C052A8A6EA000C8B954 /* EnumParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC746C042A8A6EA000C8B954 /* EnumParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		CC30BF3F2A86123100C74DBE /* CombineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineExtension.swift; sourceTree = "<group>"; };
 		CC30BF412A86133100C74DBE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		CC30BF432A86162B00C74DBE /* MainButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonType.swift; sourceTree = "<group>"; };
+		CC746C042A8A6EA000C8B954 /* EnumParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		CC30BF102A84DDDC00C74DBE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				CC746C042A8A6EA000C8B954 /* EnumParser.swift */,
 				CC30BF172A84DF1400C74DBE /* Gender.swift */,
 				CC30BF152A84DEC400C74DBE /* Person.swift */,
 				CC30BF192A84DFAF00C74DBE /* Planet.swift */,
@@ -407,6 +410,7 @@
 				CC30BF312A84F33900C74DBE /* PeopleServices.swift in Sources */,
 				CC0AB9662A8A236200D903BC /* DetailsViewController.swift in Sources */,
 				CC30BF3C2A86105700C74DBE /* MainViewController.swift in Sources */,
+				CC746C052A8A6EA000C8B954 /* EnumParser.swift in Sources */,
 				CC30BF1C2A84E00B00C74DBE /* Services.swift in Sources */,
 				CC0AB9362A89F32800D903BC /* PeopleListViewModel.swift in Sources */,
 				CC30BF1A2A84DFAF00C74DBE /* Planet.swift in Sources */,

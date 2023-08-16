@@ -34,6 +34,22 @@ struct PeopleServices {
             .eraseToAnyPublisher()
     }
     
+    func getAll_genericContainer() -> AnyPublisher<[Person], ServiceError> {
+        return services.request(.people(.getAll))
+            .tryMap { (container: GenericContainer) -> [Person] in
+                if case let .people(people) = container.results {
+                        return people
+                }
+                else {
+                    throw ServiceError.containerParsing("Generic Container Parsing failed")
+                }
+            }
+            .mapError { error in
+                return .containerParsing(error.localizedDescription)
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func getPerson(id: String) -> AnyPublisher<Person, ServiceError> {
         return services.request(.people(.getPerson(id: id))).eraseToAnyPublisher()
     }

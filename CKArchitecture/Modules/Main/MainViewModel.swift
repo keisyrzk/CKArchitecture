@@ -101,7 +101,8 @@ class MainViewModel {
 extension MainViewModel {
     
     private func getPeople() -> AnyPublisher<[Person], ServiceError> {
-        return services.people.getAll()
+        //return services.people.getAll()
+        return services.people.getAll_genericContainer()
     }
     
     private func getPlanets() -> AnyPublisher<[Planet], ServiceError> {
