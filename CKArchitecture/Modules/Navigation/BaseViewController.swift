@@ -7,6 +7,7 @@
 
 import UIKit
 
+// inherited View Controller to share all attributes and functionalities
 class BaseViewController: UIViewController {
 
     private var spinnerView: UIView!

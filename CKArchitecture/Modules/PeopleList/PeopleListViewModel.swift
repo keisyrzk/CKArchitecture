@@ -57,6 +57,7 @@ class PeopleListViewModel {
             }
             .store(in: &cancellables)
         
+        // `CombineLatest` - emits a value whenever any of its upstream publishers emit a value
         Publishers.CombineLatest(onHomeworld, onFilms)
             .sink { [weak self] (homeworld, films) in
                 self?.onIsSpinnerPresentedPublisher.send(false)

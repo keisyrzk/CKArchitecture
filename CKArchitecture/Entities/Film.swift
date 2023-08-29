@@ -17,6 +17,7 @@ struct Film: Decodable {
     let characters:     [String]
     let planets:        [String]
     
+    // prints Film data in a pretty way
     var prettyPrinted: String {
         return [
             title,
@@ -30,15 +31,18 @@ struct Film: Decodable {
 
 extension Film {
     
+    // get all not-nil uriIds from characters list
     var charactersIds: [String] {
         return characters.compactMap{ $0.uriId }
     }
     
+    // get all not-nil uriIds from films
     var planetsIds: [String] {
         return planets.compactMap{ $0.uriId }
     }
 }
 
+// extension to an array of Film objects like [Film] that prints the components the pretty way
 extension Array where Element == Film {
     
     var prettyPrinted: String {

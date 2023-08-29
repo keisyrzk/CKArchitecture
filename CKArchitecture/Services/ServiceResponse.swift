@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sample custom implemention of a response - similar to built-in `Result`
 enum ServiceResponse<T> {
     case success(T)
     case failure(ServiceError)

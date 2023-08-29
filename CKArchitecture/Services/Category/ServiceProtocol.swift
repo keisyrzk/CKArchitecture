@@ -7,6 +7,7 @@
 
 import Foundation
 
+// to ensure the `endpoint` attribute is present in all `Services`
 protocol Service {
     var endpoint: String { get }
 }

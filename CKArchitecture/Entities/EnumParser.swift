@@ -22,9 +22,9 @@ struct GenericContainer: Decodable {
 
 enum GenericContainerResult: Decodable {
     
-    case people([Person])
-    case planets([Planet])
-    case films([Film])
+    case people     ([Person])
+    case planets    ([Planet])
+    case films      ([Film])
 
     init(from decoder: Decoder) throws {
         
@@ -52,15 +52,12 @@ enum GenericContainerResult: Decodable {
     
  In Swift's Decodable, singleValueContainer() is just one of the methods provided to assist in custom parsing of the data. Essentially, Decodable lets you interact with three types of container:
 
- Single Value Container: It allows the decoder to decode a single value at the current decoding location.
+ `Single Value Container`: It allows the decoder to decode a single value at the current decoding location.
+ `Keyed Container`: It decodes a dictionary where you can decode values based on their associated keys.
+ `Unkeyed Container`: It decodes an array of values sequentially.
+ 
 
- Keyed Container: It decodes a dictionary where you can decode values based on their associated keys.
-
- Unkeyed Container: It decodes an array of values sequentially.
- 
- 
- 
- `Example: Keyed Container`
+ # Example: Keyed Container
  
  enum GenericContainerResult: Decodable {
      
@@ -76,7 +73,7 @@ enum GenericContainerResult: Decodable {
 
      init(from decoder: Decoder) throws {
          
-         let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
 
          if let people = try? container.decode([Person].self, forKey: .people) {
              self = .people(people)
@@ -121,7 +118,7 @@ enum GenericContainerResult: Decodable {
  }
 
  
-    `Example: UnkeyedContainer
+ # Example: UnkeyedContainer
  An UnkeyedContainer in Swift's Decodable is essentially for dealing with arrays or lists of values. It allows you to sequentially decode values without needing to know a specific key for each value.
 
  Let's take an example: Imagine you have a JSON where sometimes the results key contains an array of mixed data types (i.e., a mix of people, planets, and films). This is an unconventional approach and generally not recommended, but for the sake of demonstration, let's see how an UnkeyedContainer would be used in this case:
@@ -199,8 +196,6 @@ enum GenericContainerResult: Decodable {
  }
 
  In this code, the UnkeyedContainer is used to iterate over each item in the results array. For each item, we determine the type and then decode the corresponding data structure.
- 
- `
  
  */
 

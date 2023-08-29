@@ -8,9 +8,12 @@
 import UIKit
 import Combine
 
+// custom TableView implementation that handles any data input (generic `T`)
 class CKTableView<T>: UITableView, UITableViewDataSource, UITableViewDelegate {
     
+    // input table's items
     private var items: [T] = []
+    // publisher that emits the selected cell's associated data on cell click
     var onCellClickPublisher = PassthroughSubject<T, Never>()
     
     init(items: [T]) {
@@ -29,6 +32,7 @@ class CKTableView<T>: UITableView, UITableViewDataSource, UITableViewDelegate {
         registerCells()
     }
     
+    // register all possible cell types so the Table View can handle them
     private func registerCells() {
         register(UINib(nibName: "PersonTableViewCell", bundle: nil), forCellReuseIdentifier: PersonTableViewCell.identifier)
         register(UINib(nibName: "PlanetTableViewCell", bundle: nil), forCellReuseIdentifier: PlanetTableViewCell.identifier)

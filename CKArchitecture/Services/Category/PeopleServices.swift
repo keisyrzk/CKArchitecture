@@ -23,6 +23,7 @@ enum PeopleServicesType: Service {
 
 struct PeopleServices {
     
+    // fetch people using `PeopleContainer`
     func getAll() -> AnyPublisher<[Person], ServiceError> {
         return services.request(.people(.getAll))
             .tryMap { (container: PeopleContainer) -> [Person] in
@@ -34,6 +35,7 @@ struct PeopleServices {
             .eraseToAnyPublisher()
     }
     
+    // alternative - fetch people using GenericContainer that handles all data structures [Person], [Planet], [Film]
     func getAll_genericContainer() -> AnyPublisher<[Person], ServiceError> {
         return services.request(.people(.getAll))
             .tryMap { (container: GenericContainer) -> [Person] in

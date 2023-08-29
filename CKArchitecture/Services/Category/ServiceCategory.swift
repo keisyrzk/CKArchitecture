@@ -7,6 +7,7 @@
 
 import Foundation
 
+// category reflects common API structure
 enum ServiceCategory {
     
     case people (PeopleServicesType)

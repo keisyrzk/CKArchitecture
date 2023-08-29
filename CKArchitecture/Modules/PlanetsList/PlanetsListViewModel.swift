@@ -56,6 +56,7 @@ class PlanetsListViewModel {
             }
             .store(in: &cancellables)
         
+        // `CombineLatest` - emits a value whenever any of its upstream publishers emit a value
         Publishers.CombineLatest(onResidents, onFilms)
             .sink { [weak self] (residents, films) in
                 self?.onIsSpinnerPresentedPublisher.send(false)
@@ -85,7 +86,6 @@ extension PlanetsListViewModel {
         
         var residents: [Person] = []
         
-        print("-- residents:  \(ids.count) :: \(ids)")
         ids.forEach { id in
             services.people.getPerson(id: id)
                 .sink { [unowned self] result in
@@ -95,7 +95,6 @@ extension PlanetsListViewModel {
                 } receiveValue: { [unowned self] person in
                     residents.append(person)
                     if residents.count == ids.count {
-                        print("-- residents fetched:  \(residents.count)")
                         onResidents.send(residents)
                     }
                 }

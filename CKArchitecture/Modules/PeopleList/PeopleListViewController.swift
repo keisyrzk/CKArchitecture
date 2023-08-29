@@ -40,6 +40,7 @@ class PeopleListViewController: BaseViewController {
     
     private func binding() {
         
+        // run the events transform function
         let output = viewModel.transform(
             // the compiler knows from the context that it will be the `Person` so no type check is needed
             PeopleListViewModel.Input(
@@ -48,6 +49,7 @@ class PeopleListViewController: BaseViewController {
             )
         )
         
+        // subscribe to events
         output.onShow
             .receive(on: DispatchQueue.main)
             .sink { [weak self] module in

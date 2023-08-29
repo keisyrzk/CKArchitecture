@@ -21,6 +21,8 @@ enum MainButtonType {
         }
     }
     
+    // usage:
+    // let filmsButton = MainButtonType.films.button
     var button: UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

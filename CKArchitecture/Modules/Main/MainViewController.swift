@@ -14,6 +14,7 @@ class MainViewController: BaseViewController {
     
     private let viewModel = MainViewModel()
     
+    // `lazy` instantiates the object on first call
     lazy var peopleButton: UIButton = {
         return MainButtonType.people.button
     }()
@@ -40,6 +41,7 @@ class MainViewController: BaseViewController {
     
     private func binding() {
         
+        // run the events transform function
         let output = viewModel.transform(
             MainViewModel.Input(
                 didClickPeopleOption:
@@ -57,6 +59,7 @@ class MainViewController: BaseViewController {
             )
         )
         
+        // subscribe to events
         output.onError
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in

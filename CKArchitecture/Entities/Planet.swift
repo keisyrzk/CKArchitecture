@@ -14,6 +14,7 @@ struct Planet: Decodable {
     let residents:  [String]
     let films:      [String]
     
+    // prints Planet data in a pretty way
     var prettyPrinted: String {
         return [
             name,
@@ -25,15 +26,18 @@ struct Planet: Decodable {
 
 extension Planet {
     
+    // get all not-nil uriIds from residnets list
     var residentsIds: [String] {
         return residents.compactMap{ $0.uriId }
     }
     
+    // get all not-nil uriIds from films
     var filmsIds: [String] {
         return films.compactMap{ $0.uriId }
     }
 }
 
+// extension to an array of Planet objects like [Planet] that prints the components the pretty way
 extension Array where Element == Planet {
     
     var prettyPrinted: String {

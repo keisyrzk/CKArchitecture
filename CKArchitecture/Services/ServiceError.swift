@@ -7,6 +7,7 @@
 
 import Foundation
 
+// custom errors definition
 enum ServiceError: Error {
     
     case wrongURL
@@ -17,6 +18,7 @@ enum ServiceError: Error {
     
     case custom(String)
     
+    // custom error message for each error case
     var message: String {
         switch self {
         case .wrongURL:                         return "Wrong URL"

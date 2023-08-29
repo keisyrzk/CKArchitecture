@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
     
+    /// extract uri id from the given String
     var uriId: String? {
         if let lastPathComponent = self.split(separator: "/").last {
             return String(lastPathComponent)
